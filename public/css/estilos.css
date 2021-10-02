@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@300;400&family=Petit+Formal+Script&display=swap');
+
+body{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Athiti', sans-serif !important;
+}
+
+h1, h2{
+    font-family: 'Petit Formal Script', cursive;
+}
+
+.btn-primary{
+    background-color: rgb(223, 0, 93) !important;
+    border-color: rgb(187, 0, 78);
+}
+.btn-primary:hover{
+    background-color: rgb(145, 0, 60);
+    border-color: rgb(110, 0, 46);
+}

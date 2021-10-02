@@ -1,24 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './componentes/layout/head/head';
+import Footer from './componentes/layout/footer/footer';
+
+import DATA from './data.json';
+import Home from './componentes/pages/home/Home';
+import Busquedas from './componentes/pages/busquedas/Busquedas';
+import FormBusqueda from './componentes/pages/form-busqueda/FormBusqeda';
+import Nosotros from './componentes/pages/nosotros/Nosotros';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header></Header>
+        <Switch>
+          <Route path="/" exact>
+            <Home banners={DATA.home.listaBanners} perros={DATA.home.listaPerros}/>
+          </Route>
+          <Route path="/busquedas" exact>
+            <Busquedas perros={DATA.busquedas.listaPerros} provincias={DATA.datos.provincias}/>
+          </Route>
+          <Route path="/nueva-busqueda" exact>
+            <FormBusqueda provincias={DATA.datos.provincias}/>
+          </Route>
+          <Route path="/nosotros" exact>
+            <Nosotros/>
+          </Route>
+        </Switch>
+      {/*<Home banners={DATA.home.listaBanners} perros={DATA.home.listaPerros}></Home>*/}
+      {/*<Busquedas perros={DATA.busquedas.listaPerros} provincias={DATA.datos.provincias}></Busquedas>*/}
+      {/*<FormBusqueda provincias={DATA.datos.provincias}></FormBusqueda>*/}
+      <Footer></Footer>
+    </BrowserRouter>
   );
 }
 
